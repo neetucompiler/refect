@@ -110,9 +110,23 @@ controller.hears('hello-intent', 'direct_message', dialogflowMiddleware.hears, f
   bot,
   message
 ) {
-  bot.reply(message, 'Howdy!!!!!');
+  bot.reply(message, 'Howdy!!!!');
+  bot.reply(message, 'Please enter your email id Reflection for Creation');
 });
 
+controller.hears('email', 'direct_message', dialogflowMiddleware.hears, function (
+  bot,
+  message
+) {
+  bot.reply(message, 'Oh great.Please enter your company name ');
+});
+
+controller.hears('company_name', 'direct_message', dialogflowMiddleware.hears, function (
+  bot,
+  message
+) {
+  bot.reply(message, 'Howdy!!!!!');
+});
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
